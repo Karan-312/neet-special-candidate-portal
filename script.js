@@ -11,7 +11,7 @@ function goTo(pageNum) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   if (pageNum === 4) startProgressAnimation();
-  if (pageNum === 5) startExamTimer();
+  if (pageNum === 5) { currentQ = 0; startExamTimer(); renderQuestion(); }
 }
 
 // ─── PAGE 2: Category Selection ─────────────────────────────
@@ -155,39 +155,130 @@ function startProgressAnimation() {
   }, 300);
 }
 
-// ─── PAGE 5: Exam Answer ──────────────────────────────────────
-let answerSelected = false;
+// ─── PAGE 5: Exam Questions ───────────────────────────────────
+const EXAM_QUESTIONS = [
+  {
+    num: 1,
+    subject: '📗 Biology',
+    text: 'The oxygen dissociation curve of haemoglobin shifts to the right under all of the following conditions EXCEPT:',
+    options: [
+      'Increased pCO₂',
+      'Increased H⁺ concentration',
+      'Increased temperature',
+      'Decreased 2,3-BPG concentration'
+    ]
+  },
+  {
+    num: 2,
+    subject: '⚗️ Chemistry',
+    text: 'The major product formed when propene reacts with HBr in the absence of peroxide is:',
+    options: [
+      '1-Bromopropane',
+      '2-Bromopropane',
+      'Propanol',
+      'Bromoethane'
+    ]
+  },
+  {
+    num: 3,
+    subject: '⚛️ Physics',
+    text: 'A particle moves in a circle of radius 2 m with constant speed 4 m/s. The magnitude of its centripetal acceleration is:',
+    options: [
+      '2 m/s²',
+      '4 m/s²',
+      '8 m/s²',
+      '16 m/s²'
+    ]
+  },
+  {
+    num: 4,
+    subject: '📗 Biology',
+    text: 'Which of the following hormones is secreted by the juxtaglomerular cells of the kidney?',
+    options: [
+      'Aldosterone',
+      'Renin',
+      'Erythropoietin',
+      'Vasopressin'
+    ]
+  },
+  {
+    num: 5,
+    subject: '⚗️ Chemistry',
+    text: 'For a first-order reaction, the half-life is:',
+    options: [
+      'Directly proportional to concentration',
+      'Inversely proportional to concentration',
+      'Independent of concentration',
+      'Equal to the rate constant'
+    ]
+  },
+  {
+    num: 6,
+    subject: '📘 General Knowledge (Special Section)',
+    text: 'What is the primary reason this candidate has received special examination access from the National Testing Agency?',
+    options: [
+      'Academic Excellence',
+      'Medical Qualification',
+      'Government Recommendation',
+      'Being Suspiciously Adorable'
+    ]
+  }
+];
 
-function selectAnswer(letter) {
-  if (answerSelected) return;
-  answerSelected = true;
+let currentQ = 0;
+let qAnswered = false;
 
-  const opts = { A: 'opt-a', B: 'opt-b', C: 'opt-c', D: 'opt-d' };
+function renderQuestion() {
+  const q = EXAM_QUESTIONS[currentQ];
+  const labels = ['A', 'B', 'C', 'D'];
 
-  // Mark selected as wrong (brief moment), then reveal correct
-  const selectedEl = document.getElementById(opts[letter]);
-  selectedEl.classList.add('selected');
+  document.getElementById('q-number').textContent = `Question ${q.num} of 180`;
+  document.getElementById('q-subject').textContent = q.subject;
+  document.getElementById('q-text').textContent    = q.text;
+
+  const grid = document.getElementById('options-grid');
+  grid.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const d = document.createElement('div');
+    d.className = 'option-item';
+    d.id = 'exam-opt-' + i;
+    d.innerHTML = `<span class="opt-label">${labels[i]}</span><span>${opt}</span>`;
+    d.onclick = () => selectExamAnswer(i);
+    grid.appendChild(d);
+  });
+
+  // Reset UI
+  qAnswered = false;
+  document.getElementById('response-recorded').classList.add('hidden');
+  document.getElementById('next-q-btn').classList.add('hidden');
+}
+
+function selectExamAnswer(idx) {
+  if (qAnswered) return;
+  qAnswered = true;
+
+  // Highlight selected only — no correct/wrong colouring
+  document.querySelectorAll('.option-item').forEach(o => { o.onclick = null; });
+  document.getElementById('exam-opt-' + idx).classList.add('selected');
 
   setTimeout(() => {
-    // All options: wrong except D
-    Object.keys(opts).forEach(k => {
-      const el = document.getElementById(opts[k]);
-      if (k === 'D') {
-        el.classList.add('correct');
-        el.querySelector('.opt-label').textContent = '✓';
-      } else if (k === letter && letter !== 'D') {
-        el.classList.add('wrong');
-      }
-    });
+    document.getElementById('response-recorded').classList.remove('hidden');
+    document.getElementById('next-q-btn').classList.remove('hidden');
+  }, 350);
+}
 
-    // Show reveal
-    document.getElementById('answer-reveal').classList.remove('hidden');
-  }, 600);
+function nextQuestion() {
+  currentQ++;
+  if (currentQ >= EXAM_QUESTIONS.length) {
+    goTo(6); // after Q6 → Emergency page
+    return;
+  }
+  renderQuestion();
 }
 
 // ─── PAGE 5: Exam Timer ───────────────────────────────────────
 let timerInterval = null;
-let timerSeconds = 10785; // 2:59:45
+let timerSeconds  = 10785; // 2:59:45
 
 function startExamTimer() {
   if (timerInterval) clearInterval(timerInterval);

@@ -483,29 +483,25 @@ body {
   font-size: .8rem; font-weight: 700; flex-shrink: 0;
 }
 
-.correct-answer-banner {
-  background: #f0fff4;
+/* ─── Exam: Neutral Response Recorded ─── */
+.response-recorded {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  background: #f0f9f4;
   border: 1.5px solid #9ae6b4;
   border-radius: 8px;
-  padding: 1rem 1.2rem;
-  font-size: .95rem;
-  color: var(--gov-green);
+  padding: .85rem 1.1rem;
+  font-size: .92rem;
+  font-weight: 600;
+  color: #276749;
 }
-.score-display {
+.rr-icon {
   font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--gov-blue);
-  text-align: center;
+  font-weight: 900;
+  flex-shrink: 0;
 }
-.answer-explanation {
-  background: #fffaf0;
-  border: 1px solid #fbd38d;
-  border-radius: 8px;
-  padding: .9rem 1rem;
-  font-size: .85rem;
-  color: #744210;
-  line-height: 1.6;
-}
+.rr-msg { letter-spacing: .02em; }
 
 /* ─── Emergency Page ─── */
 .emergency-overlay-bg {

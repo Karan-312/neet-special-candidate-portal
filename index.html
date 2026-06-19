@@ -310,48 +310,33 @@
     </header>
 
     <main class="page-main">
-      <div class="exam-card">
+      <div class="exam-card" id="exam-card">
+
+        <!-- Dynamic header -->
         <div class="question-header">
-          <span class="q-number">Question 1 of 180</span>
+          <span class="q-number" id="q-number">Question 1 of 180</span>
           <span class="q-marks">+4 / -1</span>
         </div>
 
+        <!-- Question text -->
         <div class="question-section">
-          <p class="question-subject">📘 General Knowledge (Special Section)</p>
-          <p class="question-text">
-            What is the primary reason this candidate has received special examination access from the National Testing Agency?
-          </p>
+          <p class="question-subject" id="q-subject"></p>
+          <p class="question-text" id="q-text"></p>
         </div>
 
-        <div class="options-grid" id="options-grid">
-          <div class="option-item" id="opt-a" onclick="selectAnswer('A')">
-            <span class="opt-label">A</span>
-            <span>Academic Excellence</span>
-          </div>
-          <div class="option-item" id="opt-b" onclick="selectAnswer('B')">
-            <span class="opt-label">B</span>
-            <span>Medical Qualification</span>
-          </div>
-          <div class="option-item" id="opt-c" onclick="selectAnswer('C')">
-            <span class="opt-label">C</span>
-            <span>Government Recommendation</span>
-          </div>
-          <div class="option-item" id="opt-d" onclick="selectAnswer('D')">
-            <span class="opt-label">D</span>
-            <span>Being Suspiciously Adorable</span>
-          </div>
+        <!-- Options (rendered by JS) -->
+        <div class="options-grid" id="options-grid"></div>
+
+        <!-- Neutral confirmation — no scores, no reveals -->
+        <div class="response-recorded hidden" id="response-recorded">
+          <span class="rr-icon">✓</span>
+          <span class="rr-msg">Response Recorded Successfully</span>
         </div>
 
-        <div class="answer-reveal hidden" id="answer-reveal">
-          <div class="correct-answer-banner">
-            ✅ Correct Answer: <strong>D) Being Suspiciously Adorable</strong>
-          </div>
-          <div class="score-display">Score: <strong>4 / 4</strong> &nbsp; (+4 Marks Awarded)</div>
-          <div class="answer-explanation">
-            The National Testing Agency has confirmed that the candidate's exceptional adorability quotient (AQ) qualifies as a special consideration under Section 4(d) of the NEET Special Eligibility Guidelines, 2025.
-          </div>
-          <button class="btn btn-primary" onclick="goTo(6)">Next Question →</button>
-        </div>
+        <button class="btn btn-primary hidden" id="next-q-btn" onclick="nextQuestion()">
+          Next Question →
+        </button>
+
       </div>
     </main>
   </div>
