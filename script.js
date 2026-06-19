@@ -254,17 +254,18 @@ function renderQuestion() {
 }
 
 function selectExamAnswer(idx) {
-  if (qAnswered) return;
-  qAnswered = true;
-
-  // Highlight selected only — no correct/wrong colouring
-  document.querySelectorAll('.option-item').forEach(o => { o.onclick = null; });
+  // Clear previous selection, move highlight to new pick — always re-selectable
+  document.querySelectorAll('.option-item').forEach(o => o.classList.remove('selected'));
   document.getElementById('exam-opt-' + idx).classList.add('selected');
 
-  setTimeout(() => {
-    document.getElementById('response-recorded').classList.remove('hidden');
-    document.getElementById('next-q-btn').classList.remove('hidden');
-  }, 350);
+  // Show "Response Recorded" + Next button only on the FIRST pick
+  if (!qAnswered) {
+    qAnswered = true;
+    setTimeout(() => {
+      document.getElementById('response-recorded').classList.remove('hidden');
+      document.getElementById('next-q-btn').classList.remove('hidden');
+    }, 350);
+  }
 }
 
 function nextQuestion() {
