@@ -19,36 +19,37 @@ const ROASTS = {
   ammer:   "then why are you even giving the damn paper SHERLOCK ? 🔍",
   cutie:   "Okay whatever i can't argue 😳",
   student: "no surprise you pick the most boring one 🫥",
-  lost:    "MAAM you need THERAPY yourself becoming a doctor 🧑‍⚕️"
+  lost:    "MA'AM you need THERAPY yourself before becoming a doctor 🧑‍⚕️"
 };
 
 function selectCategory(el, val) {
   document.querySelectorAll('.radio-option').forEach(r => r.classList.remove('selected'));
   el.classList.add('selected');
 
-  // Show roast bubble on the photo side
-  const bubble = document.getElementById('roast-bubble');
-  const roastText = document.getElementById('roast-text');
-  roastText.textContent = ROASTS[val] || '';
-  bubble.classList.remove('hidden');
+  // Show roast message inline below the options
+  const inlineRoast = document.getElementById('inline-roast');
+  const inlineText  = document.getElementById('inline-roast-text');
+  inlineText.textContent = ROASTS[val] || '';
 
-  // Force re-trigger animation
-  bubble.style.animation = 'none';
-  bubble.offsetHeight; // reflow
-  bubble.style.animation = '';
+  // Re-trigger animation each time
+  inlineRoast.classList.add('hidden');
+  inlineRoast.offsetHeight; // reflow
+  inlineRoast.classList.remove('hidden');
 
-  // After roast lands, show the verify result
+  // Hide Continue button until roast is shown
+  const continueBtn = document.getElementById('continue-btn');
+  continueBtn.classList.add('hidden');
+
+  // Show Continue button after roast settles
   setTimeout(() => {
-    const result = document.getElementById('verify-result');
-    result.classList.remove('hidden');
-    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }, 1200);
+    continueBtn.classList.remove('hidden');
+  }, 900);
 }
 
 function triggerVerify() {
-  const result = document.getElementById('verify-result');
-  result.classList.remove('hidden');
+  // legacy — no-op now
 }
+
 
 // ─── PAGE 3: Photo Upload ────────────────────────────────────
 function handlePhotoUpload(event) {

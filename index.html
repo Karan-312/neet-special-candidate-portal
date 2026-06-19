@@ -110,10 +110,6 @@
       <div class="p2-photo-panel">
         <img src="cutie-photo.jpg" alt="Special Candidate" class="p2-candidate-photo" id="p2-photo" />
         <div class="p2-photo-label">🔍 Candidate Profile Image</div>
-        <!-- Roast bubble appears here -->
-        <div class="roast-bubble hidden" id="roast-bubble">
-          <div class="roast-text" id="roast-text"></div>
-        </div>
       </div>
 
       <!-- RIGHT PANEL: Form -->
@@ -162,17 +158,11 @@
           </div>
         </div>
 
-        <div class="verify-result hidden" id="verify-result">
-          <div class="result-box success">
-            <div class="result-icon">✅</div>
-            <div class="result-content">
-              <div class="result-title">Verification Successful</div>
-              <div class="result-detail">Detected Category: <strong>Doctor ✔</strong></div>
-              <div class="result-note">Advanced candidate analysis required.</div>
-            </div>
-          </div>
-          <button class="btn btn-primary" onclick="goTo(3)">Continue</button>
+        <!-- Inline roast message + continue -->
+        <div class="inline-roast hidden" id="inline-roast">
+          <div class="inline-roast-text" id="inline-roast-text"></div>
         </div>
+        <button class="btn btn-primary hidden" id="continue-btn" onclick="goTo(3)">Continue →</button>
       </div>
     </main>
 
