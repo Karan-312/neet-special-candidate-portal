@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEET Special Candidate Portal – NTA Official</title>
+  <meta name="description" content="National Eligibility Entrance Test – Special Candidate Examination Portal. Official NTA Portal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--                  PAGE 1                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="page active" id="page-1">
+    <header class="gov-header">
+      <div class="gov-stripe top-stripe"></div>
+      <div class="gov-header-inner">
+        <div class="emblem-wrap">
+          <div class="emblem">🇮🇳</div>
+        </div>
+        <div class="gov-titles">
+          <span class="gov-label">Government of India</span>
+          <span class="gov-dept">Ministry of Health &amp; Family Welfare</span>
+          <span class="gov-dept">National Testing Agency</span>
+        </div>
+        <div class="nta-logo-text">NTA</div>
+      </div>
+      <div class="gov-stripe bottom-stripe"></div>
+    </header>
+
+    <main class="page-main">
+      <div class="official-card">
+        <div class="card-badge">⚙ OFFICIAL PORTAL</div>
+        <div class="portal-title-block">
+          <h1 class="portal-title">National Eligibility Entrance Test</h1>
+          <div class="portal-subtitle">Special Candidate Examination Portal</div>
+          <div class="portal-ref">Ref. No: NTA/NEET/2025/SC/0001 &nbsp;|&nbsp; Confidential</div>
+        </div>
+
+        <div class="notice-box">
+          <div class="notice-icon">📋</div>
+          <div class="notice-text">
+            <strong>Special Examination Notice</strong><br/>
+            A special examination request has been received by this office. Candidate verification is required before examination access can be granted. Please proceed with the verification process.
+          </div>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Status</span>
+            <span class="info-value status-pending">🟡 Pending Verification</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Priority</span>
+            <span class="info-value">SPECIAL CATEGORY</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Portal Version</span>
+            <span class="info-value">v4.2.1</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Session ID</span>
+            <span class="info-value">NTA-2025-SC-7734</span>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="goTo(2)">Begin Verification</button>
+
+        <div class="security-note">
+          🔒 This portal is protected under NTA Security Protocol 4.1 · SSL Secured
+        </div>
+      </div>
+    </main>
+
+    <footer class="gov-footer">
+      <div class="footer-inner">
+        <span>NTA Candidate Services</span>
+        <span>·</span>
+        <span>Helpline: 011-40759000</span>
+        <span>·</span>
+        <span>nta.ac.in</span>
+      </div>
+      <div class="footer-sub">© 2025 National Testing Agency. All rights reserved.</div>
+    </footer>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--                  PAGE 2                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="page" id="page-2">
+    <header class="gov-header">
+      <div class="gov-stripe top-stripe"></div>
+      <div class="gov-header-inner">
+        <div class="emblem-wrap"><div class="emblem">🇮🇳</div></div>
+        <div class="gov-titles">
+          <span class="gov-label">Government of India</span>
+          <span class="gov-dept">National Testing Agency</span>
+        </div>
+        <div class="nta-logo-text">NTA</div>
+      </div>
+      <div class="gov-stripe bottom-stripe"></div>
+    </header>
+
+    <main class="page-main">
+      <div class="official-card">
+        <div class="step-indicator">
+          <div class="step done">1</div>
+          <div class="step-line active"></div>
+          <div class="step active-step">2</div>
+          <div class="step-line"></div>
+          <div class="step">3</div>
+          <div class="step-line"></div>
+          <div class="step">4</div>
+        </div>
+
+        <h2 class="section-title">Candidate Verification</h2>
+        <p class="section-desc">Please provide your professional category to proceed with verification.</p>
+
+        <div class="form-group">
+          <label class="form-label">Select your professional category:</label>
+          <div class="radio-group" id="category-group">
+            <label class="radio-option" onclick="selectCategory(this, 'student')">
+              <input type="radio" name="category" value="student" />
+              <span class="radio-circle"></span>
+              <span>Student</span>
+            </label>
+            <label class="radio-option" onclick="selectCategory(this, 'doctor')">
+              <input type="radio" name="category" value="doctor" />
+              <span class="radio-circle"></span>
+              <span>Doctor</span>
+            </label>
+            <label class="radio-option" onclick="selectCategory(this, 'alien')">
+              <input type="radio" name="category" value="alien" />
+              <span class="radio-circle"></span>
+              <span>Alien</span>
+            </label>
+            <label class="radio-option" onclick="selectCategory(this, 'cutie')">
+              <input type="radio" name="category" value="cutie" />
+              <span class="radio-circle"></span>
+              <span>Cutie</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="verify-result hidden" id="verify-result">
+          <div class="result-box success">
+            <div class="result-icon">✅</div>
+            <div class="result-content">
+              <div class="result-title">Verification Successful</div>
+              <div class="result-detail">Detected Category: <strong>Doctor ✔</strong></div>
+              <div class="result-note">Advanced candidate analysis required.</div>
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="goTo(3)">Continue</button>
+        </div>
+
+        <button class="btn btn-secondary" id="verify-btn" onclick="triggerVerify()" style="display:none;">Verify</button>
+      </div>
+    </main>
+    <footer class="gov-footer">
+      <div class="footer-inner"><span>NTA Candidate Services</span><span>·</span><span>nta.ac.in</span></div>
+    </footer>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--                  PAGE 3                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="page" id="page-3">
+    <header class="gov-header">
+      <div class="gov-stripe top-stripe"></div>
+      <div class="gov-header-inner">
+        <div class="emblem-wrap"><div class="emblem">🇮🇳</div></div>
+        <div class="gov-titles">
+          <span class="gov-label">Government of India</span>
+          <span class="gov-dept">National Testing Agency</span>
+        </div>
+        <div class="nta-logo-text">NTA</div>
+      </div>
+      <div class="gov-stripe bottom-stripe"></div>
+    </header>
+
+    <main class="page-main">
+      <div class="official-card">
+        <div class="step-indicator">
+          <div class="step done">1</div>
+          <div class="step-line active"></div>
+          <div class="step done">2</div>
+          <div class="step-line active"></div>
+          <div class="step active-step">3</div>
+          <div class="step-line"></div>
+          <div class="step">4</div>
+        </div>
+
+        <h2 class="section-title">Photograph Verification</h2>
+        <p class="section-desc">
+          Due to the nature of this special examination request, visual verification of the candidate is required by NTA Security Protocol.
+        </p>
+
+        <div class="upload-zone" id="upload-zone" onclick="document.getElementById('photo-input').click()">
+          <div class="upload-icon">📷</div>
+          <div class="upload-title">Upload Candidate Photograph</div>
+          <div class="upload-hint">Click to browse · JPG, PNG, HEIC accepted</div>
+          <input type="file" id="photo-input" accept="image/*" style="display:none;" onchange="handlePhotoUpload(event)" />
+        </div>
+
+        <div class="uploaded-preview hidden" id="uploaded-preview">
+          <div class="preview-label">Photograph Received ✔</div>
+          <img id="preview-img" src="" alt="Candidate Photo" class="preview-img" />
+        </div>
+
+        <button class="btn btn-primary" id="analysis-btn" onclick="startAnalysis()" style="display:none;">Start Analysis</button>
+
+        <!-- FBI GIF Analysis Overlay -->
+        <div class="analysis-overlay hidden" id="analysis-overlay">
+          <img src="https://media.giphy.com/media/077i6AULCXc0FKTj9s/giphy.gif" alt="FBI Investigation" class="fbi-gif" />
+          <div class="analysis-text">🔍 Initiating Biometric Analysis...</div>
+          <div class="analysis-subtext">Connecting to NTA Central Database...</div>
+        </div>
+      </div>
+    </main>
+    <footer class="gov-footer">
+      <div class="footer-inner"><span>NTA Candidate Services</span><span>·</span><span>nta.ac.in</span></div>
+    </footer>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--                  PAGE 4                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="page" id="page-4">
+    <header class="gov-header">
+      <div class="gov-stripe top-stripe"></div>
+      <div class="gov-header-inner">
+        <div class="emblem-wrap"><div class="emblem">🇮🇳</div></div>
+        <div class="gov-titles">
+          <span class="gov-label">Government of India</span>
+          <span class="gov-dept">National Testing Agency – AI Analysis Unit</span>
+        </div>
+        <div class="nta-logo-text">NTA</div>
+      </div>
+      <div class="gov-stripe bottom-stripe"></div>
+    </header>
+
+    <main class="page-main">
+      <div class="official-card">
+        <h2 class="section-title">AI Candidate Analysis</h2>
+        <p class="section-desc">Deep analysis in progress. Please do not close this window.</p>
+
+        <div class="analysis-progress-container">
+          <div class="progress-bar-outer">
+            <div class="progress-bar-inner" id="prog-bar"></div>
+          </div>
+          <div class="progress-percent" id="prog-pct">0%</div>
+
+          <div class="progress-log" id="progress-log">
+            <div class="log-entry log-pending" id="log-0">⏳ Initializing Candidate Database...</div>
+            <div class="log-entry log-pending" id="log-1">⏳ Checking Academic Records...</div>
+            <div class="log-entry log-pending" id="log-2">⏳ Checking MBBS Credentials...</div>
+            <div class="log-entry log-pending" id="log-3">⏳ Checking Previous NEET Attempts...</div>
+            <div class="log-entry log-pending" id="log-4">⏳ Analyzing Candidate Photo...</div>
+            <div class="log-entry log-pending" id="log-5">⏳ Analyzing Smile Pattern...</div>
+            <div class="log-entry log-pending" id="log-6">⏳ Unexpected Results Detected...</div>
+            <div class="log-entry log-pending" id="log-7">⏳ Review Committee Notified...</div>
+            <div class="log-entry log-pending" id="log-8">⏳ Final Approval Processing...</div>
+          </div>
+        </div>
+
+        <div class="analysis-complete hidden" id="analysis-complete">
+          <div class="complete-badge">✅ CANDIDATE APPROVED</div>
+          <div class="complete-sub">All checks passed · Analysis complete</div>
+          <button class="btn btn-primary launch-btn" onclick="goTo(5)">
+            🚀 Launch Examination
+          </button>
+        </div>
+      </div>
+    </main>
+    <footer class="gov-footer">
+      <div class="footer-inner"><span>NTA AI Analysis Unit</span><span>·</span><span>nta.ac.in</span></div>
+    </footer>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--                  PAGE 5                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="page" id="page-5">
+    <header class="exam-header">
+      <div class="exam-header-inner">
+        <div class="exam-logo">NEET</div>
+        <div class="exam-title-wrap">
+          <div class="exam-title">NEET Special Examination</div>
+          <div class="exam-meta">Candidate ID: NTA-2025-SC-7734 &nbsp;|&nbsp; Session: Secured</div>
+        </div>
+        <div class="exam-timer" id="exam-timer">⏱ 02:59:45</div>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <div class="exam-card">
+        <div class="question-header">
+          <span class="q-number">Question 1 of 180</span>
+          <span class="q-marks">+4 / -1</span>
+        </div>
+
+        <div class="question-section">
+          <p class="question-subject">📘 General Knowledge (Special Section)</p>
+          <p class="question-text">
+            What is the primary reason this candidate has received special examination access from the National Testing Agency?
+          </p>
+        </div>
+
+        <div class="options-grid" id="options-grid">
+          <div class="option-item" id="opt-a" onclick="selectAnswer('A')">
+            <span class="opt-label">A</span>
+            <span>Academic Excellence</span>
+          </div>
+          <div class="option-item" id="opt-b" onclick="selectAnswer('B')">
+            <span class="opt-label">B</span>
+            <span>Medical Qualification</span>
+          </div>
+          <div class="option-item" id="opt-c" onclick="selectAnswer('C')">
+            <span class="opt-label">C</span>
+            <span>Government Recommendation</span>
+          </div>
+          <div class="option-item" id="opt-d" onclick="selectAnswer('D')">
+            <span class="opt-label">D</span>
+            <span>Being Suspiciously Adorable</span>
+          </div>
+        </div>
+
+        <div class="answer-reveal hidden" id="answer-reveal">
+          <div class="correct-answer-banner">
+            ✅ Correct Answer: <strong>D) Being Suspiciously Adorable</strong>
+          </div>
+          <div class="score-display">Score: <strong>4 / 4</strong> &nbsp; (+4 Marks Awarded)</div>
+          <div class="answer-explanation">
+            The National Testing Agency has confirmed that the candidate's exceptional adorability quotient (AQ) qualifies as a special consideration under Section 4(d) of the NEET Special Eligibility Guidelines, 2025.
+          </div>
+          <button class="btn btn-primary" onclick="goTo(6)">Next Question →</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--                  PAGE 6                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="page" id="page-6">
+    <div class="emergency-overlay-bg"></div>
+    <main class="page-main emergency-main">
+      <div class="emergency-card">
+        <div class="warning-flash">
+          <div class="warning-emoji">🚨</div>
+          <div class="warning-title">WARNING</div>
+          <div class="warning-emoji">🚨</div>
+        </div>
+
+        <div class="emergency-badge">EXAMINATION PAUSED</div>
+
+        <img
+          src="https://media.giphy.com/media/l3q2K5jinAlChoCLS/giphy.gif"
+          alt="Emergency Alert"
+          class="emergency-gif"
+        />
+
+        <div class="sys-messages">
+          <div class="sys-msg" style="animation-delay: 0.2s">⚠ Invigilator unable to concentrate...</div>
+          <div class="sys-msg" style="animation-delay: 0.7s">⚠ Additional review requested...</div>
+          <div class="sys-msg" style="animation-delay: 1.2s">⚠ Three committee members smiling for no reason...</div>
+          <div class="sys-msg" style="animation-delay: 1.7s">⚠ Hospital staff becoming distracted...</div>
+          <div class="sys-msg" style="animation-delay: 2.2s">⚠ Candidate currently under investigation...</div>
+          <div class="sys-msg" style="animation-delay: 2.7s">🚨 Emergency committee assembled...</div>
+        </div>
+
+        <button class="btn btn-danger" onclick="goTo(7)" style="margin-top: 2rem;">View Incident Report</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--                  PAGE 7                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="page" id="page-7">
+    <header class="gov-header">
+      <div class="gov-stripe top-stripe"></div>
+      <div class="gov-header-inner">
+        <div class="emblem-wrap"><div class="emblem">🇮🇳</div></div>
+        <div class="gov-titles">
+          <span class="gov-label">Government of India</span>
+          <span class="gov-dept">Emergency Examination Review Committee</span>
+        </div>
+        <div class="nta-logo-text">NTA</div>
+      </div>
+      <div class="gov-stripe bottom-stripe"></div>
+    </header>
+
+    <main class="page-main">
+      <div class="official-card report-card">
+        <div class="report-header">
+          <div class="report-stamp">🔴 CLASSIFIED</div>
+          <h2 class="section-title">Official Examination Review</h2>
+          <div class="report-ref">Incident Report No: NTA/EMER/2025/0042</div>
+        </div>
+
+        <div class="report-intro">
+          After reviewing candidate data, the Emergency Committee has reached a <strong>unanimous decision</strong>.
+        </div>
+
+        <div class="finding-box">
+          <div class="finding-label">PRIMARY FINDING</div>
+          <div class="finding-text">Candidate exceeds acceptable beauty limits.</div>
+        </div>
+
+        <div class="risk-factors">
+          <div class="risk-title">⚠ Identified Risk Factors:</div>
+          <div class="risk-item">📉 Distracted examiners (productivity loss: 94%)</div>
+          <div class="risk-item">🧠 Reduced concentration among candidates</div>
+          <div class="risk-item">💔 Increased hospital admissions due to heartbreak</div>
+          <div class="risk-item">😵 General public confusion</div>
+          <div class="risk-item">📸 Security cameras focusing exclusively on candidate</div>
+          <div class="risk-item">🌹 Unusual surge in flower deliveries to exam centre</div>
+        </div>
+
+        <div class="committee-verdict">
+          Examination cannot continue under these circumstances.
+        </div>
+
+        <button class="btn btn-primary" onclick="goTo(8)">View Final Decision</button>
+      </div>
+    </main>
+    <footer class="gov-footer">
+      <div class="footer-inner"><span>Emergency Examination Review Committee</span><span>·</span><span>nta.ac.in</span></div>
+    </footer>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--                  PAGE 8                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="page" id="page-8">
+    <main class="page-main verdict-main">
+      <div class="verdict-banner">
+        <div class="verdict-text">EXAMINATION TERMINATED</div>
+      </div>
+
+      <div class="official-card verdict-card">
+        <div class="verdict-reason">
+          <div class="vr-title">OFFICIAL REASON FOR TERMINATION:</div>
+          <div class="vr-content">
+            Candidate is already qualified.<br/>
+            Not only as a <strong>Doctor</strong>.<br/>
+            But also as a <strong>Certified Cutie.</strong>
+          </div>
+        </div>
+
+        <img
+          src="https://media.giphy.com/media/3oKIPavRPgJYaNI97W/giphy.gif"
+          alt="Slow Motion Doctor Walk"
+          class="doctor-gif"
+        />
+
+        <div class="score-certificate">
+          <div class="score-label">Official NEET Score</div>
+          <div class="score-value">720 / 720</div>
+          <div class="score-reason">
+            Committee unanimously agreed further testing was unnecessary.<br/>
+            All marks awarded on humanitarian grounds.
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="goTo(9)">View Appeal Options</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--                  PAGE 9                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="page" id="page-9">
+    <header class="gov-header">
+      <div class="gov-stripe top-stripe"></div>
+      <div class="gov-header-inner">
+        <div class="emblem-wrap"><div class="emblem">🇮🇳</div></div>
+        <div class="gov-titles">
+          <span class="gov-label">Government of India</span>
+          <span class="gov-dept">NTA Appeal & Review Division</span>
+        </div>
+        <div class="nta-logo-text">NTA</div>
+      </div>
+      <div class="gov-stripe bottom-stripe"></div>
+    </header>
+
+    <main class="page-main">
+      <div class="official-card">
+        <h2 class="section-title">Appeal Portal</h2>
+        <p class="section-desc">You may submit an appeal against the examination termination decision. All appeals are reviewed by a senior committee.</p>
+
+        <div class="appeal-info">
+          <div class="appeal-item">
+            <span class="ai-label">Decision Reference</span>
+            <span class="ai-val">NTA/EMER/2025/0042</span>
+          </div>
+          <div class="appeal-item">
+            <span class="ai-label">Decision Status</span>
+            <span class="ai-val" style="color: #e53e3e; font-weight: 700;">FINAL</span>
+          </div>
+          <div class="appeal-item">
+            <span class="ai-label">Appeal Window</span>
+            <span class="ai-val">Open (closes never)</span>
+          </div>
+        </div>
+
+        <button class="btn btn-secondary" onclick="triggerAppeal()">Appeal Decision</button>
+        <button class="btn btn-primary" onclick="goTo(10)" style="margin-top: 1rem;">View Final Certificate</button>
+      </div>
+    </main>
+
+    <!-- Appeal Rejected Popup -->
+    <div class="modal-overlay hidden" id="appeal-modal">
+      <div class="modal-box">
+        <div class="modal-icon">🚫</div>
+        <div class="modal-title">Appeal Rejected</div>
+        <div class="modal-reason">
+          <strong>Reason:</strong><br/><br/>
+          We checked again.<br/><br/>
+          Results remain unchanged.<br/><br/>
+          <em>Still cute.</em>
+        </div>
+        <button class="btn btn-primary" onclick="closeAppeal()">Understood 🗿</button>
+      </div>
+    </div>
+
+    <footer class="gov-footer">
+      <div class="footer-inner"><span>NTA Appeal Division</span><span>·</span><span>nta.ac.in</span></div>
+    </footer>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--                  PAGE 10                    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="page" id="page-10">
+    <main class="page-main cert-main">
+      <div class="certificate">
+        <div class="cert-border-outer">
+          <div class="cert-border-inner">
+
+            <div class="cert-top-emblem">🇮🇳</div>
+            <div class="cert-org">National Institute of Candidate Evaluation</div>
+            <div class="cert-tagline">Established under Special Cuteness Act, 2025</div>
+            <div class="cert-divider"></div>
+
+            <div class="cert-body">
+              <div class="cert-certifies">This is to officially certify that</div>
+
+              <div class="cert-name">Dr. [Her Name] 💖</div>
+
+              <div class="cert-has-been">has been officially diagnosed with:</div>
+
+              <div class="cert-diagnosis">Excessive Pretty Syndrome</div>
+
+              <div class="cert-severity">
+                <span class="sev-label">Severity:</span>
+                <span class="sev-val critical">CRITICAL</span>
+              </div>
+              <div class="cert-recovery">
+                <span class="rec-label">Recovery Chances:</span>
+                <span class="rec-val">0%</span>
+              </div>
+
+              <div class="cert-findings">
+                <div class="cf-title">Additional Findings:</div>
+                <div class="cf-grid">
+                  <div class="cf-item cf-check">Funny ✔</div>
+                  <div class="cf-item cf-check">Smart ✔</div>
+                  <div class="cf-item cf-check">Doctor ✔</div>
+                  <div class="cf-item cf-check">Adorable ✔</div>
+                </div>
+              </div>
+
+              <div class="cert-status">
+                <div class="cs-label">Official Status:</div>
+                <div class="cs-value">APPROVED 🗿</div>
+              </div>
+
+              <div class="cert-gif-wrap">
+                <img
+                  src="https://media.giphy.com/media/PkJJGQ4C2SoO4Wt3sO/giphy.gif"
+                  alt="Moai Celebration"
+                  class="moai-gif"
+                />
+              </div>
+
+              <div class="cert-divider thin"></div>
+
+              <div class="cert-signatures">
+                <div class="sig-block">
+                  <div class="sig-line"></div>
+                  <div class="sig-name">Dr. S. K. Sharma, IAS</div>
+                  <div class="sig-title">Director General, NTA</div>
+                </div>
+                <div class="sig-block">
+                  <div class="sig-line sig-karan"></div>
+                  <div class="sig-name">Karan 🗿</div>
+                  <div class="sig-title">Chief Examination Officer</div>
+                </div>
+              </div>
+
+              <div class="cert-seal">
+                <div class="seal-circle">
+                  <div class="seal-inner">OFFICIAL<br/>SEAL</div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="cert-footer-note">This certificate is valid for lifetime · No appeals accepted · Final decision of the committee</div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary cert-download-btn" onclick="window.print()">🖨 Print Certificate</button>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
