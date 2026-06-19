@@ -105,8 +105,19 @@
       <div class="gov-stripe bottom-stripe"></div>
     </header>
 
-    <main class="page-main">
-      <div class="official-card">
+    <main class="page-main p2-main">
+      <!-- LEFT PANEL: Photo -->
+      <div class="p2-photo-panel">
+        <img src="cutie-photo.jpg" alt="Special Candidate" class="p2-candidate-photo" id="p2-photo" />
+        <div class="p2-photo-label">🔍 Candidate Profile Image</div>
+        <!-- Roast bubble appears here -->
+        <div class="roast-bubble hidden" id="roast-bubble">
+          <div class="roast-text" id="roast-text"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL: Form -->
+      <div class="p2-form-panel">
         <div class="step-indicator">
           <div class="step done">1</div>
           <div class="step-line active"></div>
@@ -118,31 +129,36 @@
         </div>
 
         <h2 class="section-title">Candidate Verification</h2>
-        <p class="section-desc">Please provide your professional category to proceed with verification.</p>
+        <p class="section-desc">Please select your professional category to proceed with verification.</p>
 
         <div class="form-group">
           <label class="form-label">Select your professional category:</label>
           <div class="radio-group" id="category-group">
-            <label class="radio-option" onclick="selectCategory(this, 'student')">
-              <input type="radio" name="category" value="student" />
+
+            <label class="radio-option" onclick="selectCategory(this, 'ammer')">
+              <input type="radio" name="category" value="ammer" />
               <span class="radio-circle"></span>
-              <span>Student</span>
+              <span>too_much_ammer 💸</span>
             </label>
-            <label class="radio-option" onclick="selectCategory(this, 'doctor')">
-              <input type="radio" name="category" value="doctor" />
-              <span class="radio-circle"></span>
-              <span>Doctor</span>
-            </label>
-            <label class="radio-option" onclick="selectCategory(this, 'alien')">
-              <input type="radio" name="category" value="alien" />
-              <span class="radio-circle"></span>
-              <span>Alien</span>
-            </label>
+
             <label class="radio-option" onclick="selectCategory(this, 'cutie')">
               <input type="radio" name="category" value="cutie" />
               <span class="radio-circle"></span>
-              <span>Cutie</span>
+              <span>cutie 😗</span>
             </label>
+
+            <label class="radio-option" onclick="selectCategory(this, 'student')">
+              <input type="radio" name="category" value="student" />
+              <span class="radio-circle"></span>
+              <span>Student 🤓</span>
+            </label>
+
+            <label class="radio-option" onclick="selectCategory(this, 'lost')">
+              <input type="radio" name="category" value="lost" />
+              <span class="radio-circle"></span>
+              <span>i dont know who i am 😵‍💫</span>
+            </label>
+
           </div>
         </div>
 
@@ -157,10 +173,9 @@
           </div>
           <button class="btn btn-primary" onclick="goTo(3)">Continue</button>
         </div>
-
-        <button class="btn btn-secondary" id="verify-btn" onclick="triggerVerify()" style="display:none;">Verify</button>
       </div>
     </main>
+
     <footer class="gov-footer">
       <div class="footer-inner"><span>NTA Candidate Services</span><span>·</span><span>nta.ac.in</span></div>
     </footer>

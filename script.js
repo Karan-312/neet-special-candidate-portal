@@ -15,22 +15,39 @@ function goTo(pageNum) {
 }
 
 // ─── PAGE 2: Category Selection ─────────────────────────────
+const ROASTS = {
+  ammer:   "then why are you even giving the damn paper SHERLOCK ? 🔍",
+  cutie:   "Okay whatever i can't argue 😳",
+  student: "no surprise you pick the most boring one 🫥",
+  lost:    "MAAM you need THERAPY yourself becoming a doctor 🧑‍⚕️"
+};
+
 function selectCategory(el, val) {
   document.querySelectorAll('.radio-option').forEach(r => r.classList.remove('selected'));
   el.classList.add('selected');
 
-  // Show verify button
-  const verifyBtn = document.getElementById('verify-btn');
-  verifyBtn.style.display = 'flex';
+  // Show roast bubble on the photo side
+  const bubble = document.getElementById('roast-bubble');
+  const roastText = document.getElementById('roast-text');
+  roastText.textContent = ROASTS[val] || '';
+  bubble.classList.remove('hidden');
 
-  // Auto-trigger after small delay for UX
-  setTimeout(() => triggerVerify(), 500);
+  // Force re-trigger animation
+  bubble.style.animation = 'none';
+  bubble.offsetHeight; // reflow
+  bubble.style.animation = '';
+
+  // After roast lands, show the verify result
+  setTimeout(() => {
+    const result = document.getElementById('verify-result');
+    result.classList.remove('hidden');
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, 1200);
 }
 
 function triggerVerify() {
   const result = document.getElementById('verify-result');
   result.classList.remove('hidden');
-  document.getElementById('verify-btn').style.display = 'none';
 }
 
 // ─── PAGE 3: Photo Upload ────────────────────────────────────
