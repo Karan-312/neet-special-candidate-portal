@@ -271,7 +271,7 @@ function selectExamAnswer(idx) {
 function nextQuestion() {
   currentQ++;
   if (currentQ >= EXAM_QUESTIONS.length) {
-    goTo(6); // after Q6 → Emergency page
+    goTo(7); // after Q6 → Incident Report
     return;
   }
   renderQuestion();
